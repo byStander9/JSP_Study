@@ -16,8 +16,11 @@
 		request.setAttribute("DIFFERENCE", new Integer(num1 - num2));
 		request.setAttribute("PRODUCT", new Integer(num1 * num2));
 		request.setAttribute("QUOTIENT", new Integer(num1 / num2));
-		RequestDispatcher dispatcher = request.getRequestDispatcher("FourRulesResult.jsp");
-		dispatcher.forward(request, response);
+		//forward 메소드를 사용하면 session의 값들은 전달가능하다.
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("FourRulesResult.jsp");
+		//dispatcher.forward(request, response);
+		//sendRedirect 메소드를 사용하면 session의 값들은 전달되지않는다. 완전히 새로운 request이기때문!
+		response.sendRedirect("FourRulesResult.jsp"); 
 	%>
 </body>
 </html>
